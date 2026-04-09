@@ -1,4 +1,4 @@
-// routes/application.js
+
 const router = require("express").Router();
 const Application = require("../models/Application");
 

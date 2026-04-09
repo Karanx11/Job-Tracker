@@ -32,13 +32,13 @@ export default function Dashboard() {
     "Rejected",
   ];
 
-  // 🔥 Logout
+  // Logout
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.href = "/";
   };
 
-  // 🔥 Drag logic
+  // Drag logic
   const handleDragEnd = async (result) => {
     if (!result.destination) return;
 
@@ -53,7 +53,7 @@ export default function Dashboard() {
     fetchApps();
   };
 
-  // 🗑️ Delete
+  // Delete
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/api/applications/${id}`);
     fetchApps();
@@ -62,7 +62,7 @@ export default function Dashboard() {
   return (
     <div className="bg-gray-100 min-h-screen p-6">
 
-      {/* 🔥 NAVBAR */}
+      {/* NAVBAR */}
       <div className="flex justify-between items-center mb-6 bg-primary text-white p-4 rounded-xl shadow-sm">
         <h1 className="text-2xl font-bold">
           Job Tracker Dashboard
@@ -76,10 +76,10 @@ export default function Dashboard() {
         </button>
       </div>
 
-      {/* ➕ Add Application */}
+      {/* Add Application */}
       <AddApplication refresh={fetchApps} />
 
-      {/* 🔥 BOARD */}
+      {/* BOARD */}
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className="flex gap-4 overflow-x-auto mt-6 pb-2">
           {columns.map((col) => (
@@ -150,7 +150,7 @@ export default function Dashboard() {
         </div>
       </DragDropContext>
 
-      {/* 🔥 VIEW / EDIT MODAL */}
+      {/* VIEW / EDIT MODAL */}
       {selectedApp && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-xl w-96 shadow-lg">
@@ -226,7 +226,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* 🔥 LOGOUT MODAL */}
+      {/* LOGOUT MODAL */}
       {showLogoutModal && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-xl shadow-lg w-80 text-center">

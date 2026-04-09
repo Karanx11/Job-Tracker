@@ -28,7 +28,7 @@ DO NOT add any extra text.`,
 
     const text = response.choices[0].message.content;
 
-    // 🔥 SAFE PARSE (IMPORTANT)
+    // SAFE PARSE (IMPORTANT)
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     const data = jsonMatch ? JSON.parse(jsonMatch[0]) : { points: [] };
 
@@ -77,7 +77,7 @@ ${jd}
 
     const text = response.choices[0].message.content;
 
-    // ✅ SAFE PARSE
+    // SAFE PARSE
     let data = {};
     try {
       const jsonMatch = text.match(/\{[\s\S]*\}/);
