@@ -12,7 +12,7 @@ export default function AddApplication({ refresh }) {
     try {
       setLoading(true);
 
-      await axios.post("http://localhost:5000/api/applications", {
+      await axios.post("https://job-tracker-backend-jwgv.onrender.com/api/applications", {
         company,
         role,
         status: "Applied",

@@ -16,7 +16,7 @@ export default function Dashboard() {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   const fetchApps = async () => {
-    const res = await axios.get("http://localhost:5000/api/applications");
+    const res = await axios.get("https://job-tracker-backend-jwgv.onrender.com/api/applications");
     setApps(res.data);
   };
 
@@ -46,7 +46,7 @@ export default function Dashboard() {
     const newStatus = result.destination.droppableId;
 
     await axios.put(
-      `http://localhost:5000/api/applications/${id}`,
+      `https://job-tracker-backend-jwgv.onrender.com/api/applications/${id}`,
       { status: newStatus }
     );
 
@@ -55,7 +55,7 @@ export default function Dashboard() {
 
   // Delete
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/applications/${id}`);
+    await axios.delete(`https://job-tracker-backend-jwgv.onrender.com/api/applications/${id}`);
     fetchApps();
   };
 
@@ -202,7 +202,7 @@ export default function Dashboard() {
                 <button
                   onClick={async () => {
                     await axios.put(
-                      `http://localhost:5000/api/applications/${editData._id}`,
+                      `https://job-tracker-backend-jwgv.onrender.com/api/applications/${editData._id}`,
                       editData
                     );
                     setEditMode(false);
