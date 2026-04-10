@@ -6,6 +6,7 @@ import {
   Droppable,
   Draggable,
 } from "@hello-pangea/dnd";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const [apps, setApps] = useState([]);
@@ -14,6 +15,8 @@ export default function Dashboard() {
   const [editMode, setEditMode] = useState(false);
   const [editData, setEditData] = useState({});
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const navigate = useNavigate();
 
   const fetchApps = async () => {
     const res = await axios.get("https://job-tracker-backend-jwgv.onrender.com/api/applications");
@@ -35,7 +38,7 @@ export default function Dashboard() {
   // Logout
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/";
+    navigate("/");
   };
 
   // Drag logic
